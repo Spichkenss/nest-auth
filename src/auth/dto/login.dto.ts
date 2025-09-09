@@ -13,6 +13,7 @@ export namespace LoginDto {
   }
 
   export class Response {
-    readonly message: string;
+    readonly accessToken: string;
+    readonly refreshToken: string;
   }
 }

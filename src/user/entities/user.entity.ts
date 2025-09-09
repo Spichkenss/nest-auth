@@ -10,13 +10,15 @@ import {
 import { CredentialsEntity } from 'src/auth/entities/credentials.entity';
 import { UserRole } from '../consts/user-role.enum';
 
+export type UserId = string;
+
 @Entity({ name: 'user' })
 export class UserEntity {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: UserId;
 
   @Column({ unique: true, type: 'citext' })
-  email: string;
+  login: string;
 
   @Column({ type: 'enum', enum: UserRole, default: UserRole.ADMIN })
   role: UserRole;

@@ -1,7 +1,11 @@
-export type JwtAccessPayload = {
-  sub: string;
+export type JwtPayload = {
   id: string;
   role: string;
-  iat: number;
-  exp: number;
 };
+
+export interface IJwtProvider {
+  signAccess(payload: JwtPayload): string;
+  signRefresh(payload: JwtPayload): string;
+  verifyAccess(token: string): any;
+  verifyRefresh(token: string): any;
+}
